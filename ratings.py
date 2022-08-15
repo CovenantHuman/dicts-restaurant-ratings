@@ -2,7 +2,7 @@
 
 def read_ratings(filename):
     """Alphabetize and print restaurant ratings
-    
+
     Arguments: a file with restaurant ratings
     Return: None """
     ratings = open(filename)
@@ -16,6 +16,15 @@ def read_ratings(filename):
 
     user_restaurant = input("Please enter a restaurant: ")
     user_rating = input("Please give your rating: ")
+
+    while True: 
+        try:
+            if int(user_rating) > 5 or int(user_rating) < 1:
+                user_rating = input("Please give a rating between 1 and 5: ")
+            else:
+                break
+        except ValueError:
+            user_rating = input("Please enter a number between 1 and 5: ")
 
     ratings_dict[user_restaurant] = user_rating
 
