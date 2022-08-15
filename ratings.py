@@ -1,6 +1,10 @@
 """Restaurant rating lister."""
 
 def read_ratings(filename):
+    """Alphabetize and print restaurant ratings
+    
+    Arguments: a file with restaurant ratings
+    Return: None """
     ratings = open(filename)
 
 
