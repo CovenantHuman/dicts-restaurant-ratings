@@ -62,7 +62,38 @@ def read_ratings(filename):
                     user_rating = input("Please enter a number between 1 and 5: ")
             ratings_dict[random_restaurant] = user_rating
         elif user_choice == "4":
-            pass
-        
+            for key in ratings_dict:
+                print(key)
+            restaurant_choice = input(
+                "Choose a restaurant from the above list: "
+                )
+            if restaurant_choice in ratings_dict.keys():
+                user_rating = input("What would you like to rate it: ")
+                while True: 
+                    try:
+                        if int(user_rating) > 5 or int(user_rating) < 1:
+                            user_rating = input("Please give a rating between 1 and 5: ")
+                        else:
+                            break
+                    except ValueError:
+                        user_rating = input("Please enter a number between 1 and 5: ")
+                ratings_dict[restaurant_choice] = user_rating
+            else:
+                while True: 
+                    if restaurant_choice not in ratings_dict.keys():
+                        restaurant_choice = input("Please write the exact name of the restaurant shown above: ")
+                    else:
+                        break
+                user_rating = input("What would you like to rate it: ")
+                while True: 
+                    try:
+                        if int(user_rating) > 5 or int(user_rating) < 1:
+                            user_rating = input("Please give a rating between 1 and 5: ")
+                        else:
+                            break
+                    except ValueError:
+                        user_rating = input("Please enter a number between 1 and 5: ")
+                ratings_dict[restaurant_choice] = user_rating
+
 
 read_ratings('scores.txt')
